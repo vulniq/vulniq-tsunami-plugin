@@ -1,0 +1,51 @@
+<!--
+    Copyright (c) 2020 VulnIQ
+-->
+
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>zip</id>
+
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+    <files>
+        <file>
+            <source>README.md</source>
+            <outputDirectory></outputDirectory>
+        </file>
+        <file>
+            <source>src/main/resources/bin/tsunami.sh</source>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </file>
+        <file>
+            <source>src/main/resources/conf/tsunami.yaml</source>
+            <outputDirectory>conf</outputDirectory>
+        </file>
+        <!--
+        TODO added temporarily since tsunami plugins are not on maven central. remove when no longer needed
+        -->
+        <file>
+            <source>src/main/resources/lib/nmap_port_scanner-0.0.1-SNAPSHOT.jar</source>
+            <destName>nmap_port_scanner-0.0.1-SNAPSHOT.jar</destName>
+            <outputDirectory>lib</outputDirectory>
+        </file>
+        <file>
+            <source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+            <destName>${project.artifactId}.jar</destName>
+            <outputDirectory>lib</outputDirectory>
+        </file>
+    </files>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>/lib</outputDirectory>
+            <excludes>
+                <exclude>${project.groupId}:${project.artifactId}</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

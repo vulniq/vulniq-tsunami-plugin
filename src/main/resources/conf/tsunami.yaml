@@ -1,0 +1,8 @@
+# This is an example configuration file for VulnIQ tsunami plugin
+# You can use the free version at free.vulniq.com but note that it is rate limited
+
+plugins:
+  vulniq_vuln_detector:
+    engineBaseUrl: https://free.vulniq.com
+    vulnsByVPVUrl: /api/vulnerability/list-by-vpv
+    accessToken: YOU CAN OBTAIN AN ACCESS TOKEN FROM https://free.vulniq.com/
