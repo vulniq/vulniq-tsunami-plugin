@@ -24,7 +24,6 @@ import com.google.tsunami.common.config.annotations.ConfigProperties;
  * plugins:
  *   vulniq_vuln_detector:
  *     engineBaseUrl: https://free.vulniq.com
- *     ovalXMLUrl: /api/oval/xml
  *     ...
  */
 @ConfigProperties("plugins.vulniq_vuln_detector")
